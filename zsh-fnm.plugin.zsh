@@ -5,7 +5,7 @@ _install_fnm() {
     || FNM_INSTALL_SCRIPT=$(wget -qO- $FNM_INSTALL_URL 2>/dev/null) \
     || {echo "curl or wget required to install fnm"; return 1}
 
-    bash -s -- --skip-shell <<< $FNM_INSTALL_SCRIPT || return 1
+    bash -s -- --skip-shell --install-dir "$HOME/.fnm" <<< $FNM_INSTALL_SCRIPT || return 1
     return 0
 }
 
